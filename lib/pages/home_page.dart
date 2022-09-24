@@ -17,7 +17,15 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
           // color: Colors.amberAccent,
-          child: _moonStationDropDownWidget(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _pageTitle(),
+              _moonStationDropDownWidget(),
+            ],
+          ),
         ),
       ),
     );
@@ -56,7 +64,18 @@ class HomePage extends StatelessWidget {
       },
     ).toList();
     return Container(
-      child: DropdownButton(onChanged: (_) {}, items: _items),
+      width: _deviceWidth,
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(53, 53, 53, 1.0),
+          borderRadius: BorderRadius.circular(10)),
+      child: DropdownButton(
+        onChanged: (_) {},
+        items: _items,
+        underline: Container(),
+        dropdownColor: Color.fromRGBO(53, 53, 53, 1.0),
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
